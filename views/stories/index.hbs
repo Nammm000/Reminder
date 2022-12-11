@@ -1,0 +1,41 @@
+<h1>Stories</h1>
+{{> _search_bar}}
+<div class="row ">
+    {{#each stories}}
+    {{Alert _id setTime title body}}
+    <div class="col s12 m4 grid">
+        <div class="card">
+            <div class="card-image">
+                {{{editIcon user ../user _id}}}
+            </div>
+            <div class="card-image">
+                {{{deleteIcon user ../user _id}}}
+            </div>
+            <div class="card-content center-align">
+                <div>
+                    <h5>{{stripTags (truncate title 10)}}</h5>
+                    <p>{{stripTags (truncate body 15)}}</p>
+                </div>
+
+                <div>
+                    <p>{{setTime}}</p>
+                </div>
+
+                <div>
+                    <p>Alert in: {{convertMiliseconds (timeDiff setTime)}}</p>
+                </div>
+                
+                <div class="chip">
+                    <img src="{{user.image}}" alt="">
+                    <a href="/stories/user/{{user._id}}">{{stripTags (truncate user.displayName 10)}}</a>
+                </div>
+            </div>
+            <div class="card-action center-align">
+                <a href="/stories/{{_id}}" class="btn grey">Read More</a>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <p>No work to remind</p>
+    {{/each}}
+</div>

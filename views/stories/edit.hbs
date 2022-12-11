@@ -1,0 +1,33 @@
+<h3>Edit Story</h3>
+<div class="row">
+    <form action="/stories/{{story._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" value="{{story.title}}" required/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <label for="setTime">Set Time</label>
+                <br>
+                <input type="datetime-local" id="setTime" name="setTime" value="{{formatDate story.setTime 'YYYY-MM-DDThh:mm:ss'}}" required/>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Tell Us Your Story:</h5>
+                <textarea id="body" name="body">{{story.body}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

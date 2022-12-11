@@ -1,0 +1,78 @@
+p {
+  margin: 10px 0 !important;
+}
+
+body{
+  margin-left:auto;
+	margin-right:auto;
+}
+
+a {
+  font-size:1.2vw;
+}
+.grid {
+  /* display: grid;*/
+text-align: center;
+place-self: center;
+  font-size: 1.2vw;
+}
+
+a:hover, button:hover {
+  opacity: 0.8;
+}
+
+.login-container {
+  width: 400px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.fa-small {
+  font-size: 16px !important;
+}
+
+.btn-float {
+  float: left;
+  margin-right: 10px;
+}
+
+.img-small {
+  width: 180px;
+}
+
+.fa-large {
+  font-size: 26px !important;
+}
+
+nav {
+	position: sticky;
+	top: 0px;
+  margin-left:auto;
+	margin-right:auto;
+  z-index: 2;
+}
+
+.sidenav {
+  background-color: deepskyblue;
+  width: 20%;
+  font-size: 1vw;
+}
+
+.input-group{
+  display:table;
+  width:100%;
+}
+
+.input-group .input-field,
+.input-group .input-group-addon{
+  display:table-cell;
+}
+
+.input-field {
+  padding: 5px;
+  
+}
+
+.search-form {
+  margin: 70px 0;
+}
