@@ -67,39 +67,16 @@ module.exports = {
     return d + "day" + h + "hour" + m + "minutes";*/
   },
   timeDiff: function (date1) {
+    if (Date.now() >= date1) {
+      return 0;
+    }
     return Math.abs(date1 - Date.now());
   },
-  Alert: function (storyId, setTime, title, body) {
+  Alert: function (setTime) {
     if (Date.now() >= setTime) {
-      //popup.alert({
-      //  content: title + " in time " + setTime + "\n" + body,
-      //});
-      //alert(title + " in time " + setTime);
-      //alert(body);
-      //let story = Story.findById(storyId).lean();
-      Story.remove({ _id: storyId });
-      /*router.delete("/${storyId}", ensureAuth, async (req, res) => {
-        window.alert(title + " in time " + setTime);
-        window.alert(body);
-        try {
-          let story = await Story.findById(storyId).lean();
-
-          if (!story) {
-            return res.render("error/404");
-          }
-
-          if (story.user != req.user.id) {
-            res.redirect("/stories");
-          } else {
-            await Story.remove({ _id: storyId });
-            res.redirect("/stories");
-          }
-        } catch (err) {
-          console.error(err);
-          return res.render("error/500");
-        }
-      });*/
+      return true;
     }
+    return false;
   },
   truncate: function (str, len) {
     if (str.length > len && str.length > 0) {

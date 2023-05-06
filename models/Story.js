@@ -25,4 +25,10 @@ const StorySchema = new mongoose.Schema({
   },
 });
 
+/*
+StorySchema.virtual("deleteAfter").get(function () {
+  return this.setTime.getTime() - this.createdAt.getTime() || 5;
+});
+*/
+
 module.exports = mongoose.model("Story", StorySchema);

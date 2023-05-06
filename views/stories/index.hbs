@@ -2,7 +2,12 @@
 {{> _search_bar}}
 <div class="row ">
     {{#each stories}}
-    {{Alert _id setTime title body}}
+    {{!-- {{Alert _id setTime title body}} --}}
+    
+    {{!-- <script>
+        {{{Alert setTime}}}
+    </script> --}}
+    
     <div class="col s12 m4 grid">
         <div class="card">
             <div class="card-image">
@@ -37,5 +42,22 @@
     </div>
     {{else}}
     <p>No work to remind</p>
+    {{/each}}
+
+    {{#each stories}}
+        {{#if (Alert setTime)}}
+        <script>
+            var tit = "{{stripTags (truncate title 10)}}";
+            var tim = "{{setTime}}";
+            
+            if (confirm(tit + " in time\n" + tim) == true) {
+                confirm('Remember your work.')
+                //prompt("Please enter your name", "Harry");
+            } else {
+                confirm('Ok, but remember your work.')
+                //prompt("Please enter your name", "Potter");
+            }
+        </script>
+        {{/if}}
     {{/each}}
 </div>
